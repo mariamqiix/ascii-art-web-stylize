@@ -9,15 +9,16 @@ body{margin:0;padding:0;border:none; background-color: #f1f0e8; font-family:"Cou
 
 #formOption{float:left;  height: 50%; padding:4%; width: 42%;color:black;max-height:60%;}
 #formOption p{color:red;opacity: 0.4;text-align: left;padding-left: 15%; font-style: italic;}
-#formOption label{font-weight: bold;text-align: left; margin-left:15% ;}
+#formOption label{font-weight: bold;text-align: left;}
 #text{border-style:none;border-radius:20px;background-color:#F1AFB2;text-align:center; 
     max-height: 80%; max-width: 80%; width: 80%;height: 80%;font-size:1.2em;}
 #chose{border-style:none;border-radius:100px;text-align:center;
     background-color:#F1AFB2;height:10%;width:25%;font-size:1.2em;padding: 1%;}
 #bottons{border-style:none;border-radius:100px;
-    background-color:#F1AFB2;height:10%;width:20%;font-size:1.2em;padding: 1%;}
+    background-color:#F1AFB2;height:20%;width:20%;font-size:1.2em;padding: 1%;}
 #colordiv{border-style:none;border-radius:20px;background-color:#F1AFB2;text-align:left; 
-    max-height: 10%; max-width: 25%; width: 25%;height: 10%;font-size:1.2em; padding: 1%;}
+    max-height: 10%; max-width: 25%; width: 25%;height: 100%;font-size:1.2em; padding: 1%;}
+
     
 #ErrorMsg{padding: 10%;width: 80%;height:80%;color: #ff4f4f;font-weight: bold;}
 
