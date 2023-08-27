@@ -9,7 +9,7 @@ body{margin:0;padding:0;border:none; background-color: #f1f0e8; font-family:"Cou
 
 #formOption{float:left;  height: 50%; padding:4%; width: 42%;color:black;max-height:60%;}
 #formOption p{color:red;opacity: 0.4;text-align: left;padding-left: 15%; font-style: italic;}
-#formOption label{font-weight: bold;}
+#formOption label{font-weight: bold;text-align: left; margin-left:15% ;}
 #text{border-style:none;border-radius:20px;background-color:#F1AFB2;text-align:center; 
     max-height: 80%; max-width: 80%; width: 80%;height: 80%;font-size:1.2em;}
 #chose{border-style:none;border-radius:100px;text-align:center;

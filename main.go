@@ -24,9 +24,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	fileName := r.FormValue("chose")
 	_, error := os.Stat(fileName + ".txt")
 	userColor := strings.ToLower(r.FormValue("color"))
-	backgroundColor := CheckBackgroundColor(userColor)
+	backgroundColor := strings.ToLower(r.FormValue("Backcolor"))
 	indexTemplate, _ := template.ParseFiles("template/index.html")
-	if (!CheckLetter(text) || text == "" || !CheckColor(userColor)) && r.Method == "POST" {
+	if (!CheckLetter(text) || text == "" || !CheckColor(userColor) || userColor == backgroundColor || !CheckColor(backgroundColor) ) && r.Method == "POST"{
 		w.WriteHeader(http.StatusBadRequest)
 		http.ServeFile(w, r, "./template/400.html")
 		return
@@ -150,17 +150,4 @@ func CheckColor(userValue string) bool {
 		}
 	}
 	return false
-}
-
-func CheckBackgroundColor(userColor string) string {
-	Colors := []string{"whitesmoke", "#f5f5f5", "seashell", "#fff5ee", "papayawhip", "#ffefd5",
-		"oldlace", "#fdf5e6", "linen", "#faf0e6", "lightgoldenrodyellow", "#fafad2", "lemonchiffon", "#fffacd",
-		"lavenderblush", "#fff0f5", "cornsilk", "#fff8dc", "blanchedalmond", "#ffebcd", "beige", "#f5f5dc", "antiquewhite",
-		"#faebd7", "#f1f0e8"}
-	for _, color := range Colors {
-		if color == userColor {
-			return "#f1aeb2"
-		}
-	}
-	return "#f1f0e8"
 }
