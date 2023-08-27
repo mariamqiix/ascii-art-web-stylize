@@ -26,7 +26,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	userColor := strings.ToLower(r.FormValue("color"))
 	backgroundColor := strings.ToLower(r.FormValue("Backcolor"))
 	indexTemplate, _ := template.ParseFiles("template/index.html")
-	if (!CheckLetter(text) || text == "" || !CheckColor(userColor) || userColor == backgroundColor || !CheckColor(backgroundColor) ) && r.Method == "POST"{
+	if (!CheckLetter(text) || text == "" || userColor == backgroundColor) && r.Method == "POST" {
 		w.WriteHeader(http.StatusBadRequest)
 		http.ServeFile(w, r, "./template/400.html")
 		return
@@ -58,7 +58,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		http.ServeFile(w, r, "./template/400.html") // should be 400
 		return
-	} 
+	}
 }
 
 func serveIndex(text, filename string) []string {
@@ -117,37 +117,4 @@ func CheckLetter(s string) bool {
 		}
 	}
 	return true
-}
-
-func CheckColor(userValue string) bool {
-	Colors := []string{"aliceblue", "antiquewhite", "aqua", "aquamarine", "azure", "beige", "bisque", "black", "blanchedalmond", "blue", "blueviolet", "brown",
-		"burlywood", "cadetblue", "chartreuse", "chocolate", "coral", "cornflowerblue", "cornsilk", "crimson", "cyan",
-		"darkblue", "darkcyan", "darkgoldenrod", "darkgray", "darkgreen", "darkkhaki", "darkmagenta", "darkolivegreen",
-		"darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue", "darkslategray",
-		"darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dodgerblue", "firebrick", "floralwhite",
-		"forestgreen", "fuchsia", "gainsboro", "ghostwhite", "gold", "goldenrod", "gray", "green", "greenyellow",
-		"honeydew", "hotpink", "indianred", "indigo", "ivory", "khaki", "lavender", "lavenderblush", "lawngreen",
-		"lemonchiffon", "lightblue", "lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgray", "lightgreen",
-		"lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategray", "lightsteelblue", "lightyellow",
-		"lime", "limegreen", "linen", "magenta", "maroon", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple",
-		"mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumturquoise", "mediumvioletred", "midnightblue",
-		"mintcream", "mistyrose", "moccasin", "navajowhite", "navy", "oldlace", "olive", "olivedrab", "orange", "orangered",
-		"orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred", "papayawhip", "peachpuff", "peru", "pink", "plum",
-		"powderblue", "purple", "red", "rosybrown", "royalblue", "saddlebrown", "salmon", "sandybrown", "seagreen", "seashell",
-		"sienna", "silver", "skyblue", "slateblue", "slategray", "snow", "springgreen", "steelblue", "tan", "teal", "thistle",
-		"tomato", "turquoise", "violet", "wheat", "white", "whitesmoke", "yellow", "yellowgreen"}
-	for _, color := range Colors {
-		if color == userValue {
-			return true
-		} else if strings.Index(userValue, "#") == 0 && len(userValue) == 7 {
-			for i := 1; i <= 6; i++ {
-				if (userValue[i] >= '0' && userValue[i] <= '9') || (userValue[i] >= 'a' && userValue[i] <= 'f') {
-				} else {
-					return false
-				}
-			}
-			return true
-		}
-	}
-	return false
 }

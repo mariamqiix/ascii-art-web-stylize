@@ -20,7 +20,7 @@ body{margin:0;padding:0;border:none; background-color: #f1f0e8; font-family:"Cou
     max-height: 10%; max-width: 25%; width: 25%;height: 100%;font-size:1.2em; padding: 1%;}
 
     
-#ErrorMsg{padding: 10%;width: 80%;height:80%;color: #ff4f4f;font-weight: bold;}
+#ErrorMsg{padding: 10%;width: 80%;height:80%;color: #F1AFB2;font-weight: bold;}
 
 #output{padding:4%; width:42%;height: 50%;float:left; max-height:60%;overflow:auto;
     text-overflow:ellipsis;white-space:nowrap;} 

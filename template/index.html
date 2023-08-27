@@ -20,9 +20,9 @@
         <textarea type="text" id="text" name="thetext" required></textarea>
         <br><p>Only 2000 characters allowed</p><br>
             <label for="text">Font Color:</label>
-            <input type="text" id="colordiv" name="color" value="black" required>
+            <input type="color" name="color" value="#000000"required>
             <label for="text">Background Color:</label>
-            <input type="text" id="colordiv" name="Backcolor" value="#f1f0e8" required>
+            <input type="color" name="Backcolor" value="#f1f0e8" required>
             <br><br>
         <select name="chose" id="chose">
             <option value="standard">Standard</option>
@@ -32,7 +32,6 @@
         <input id="bottons" type="submit" value="Submit"> 
     </form>
     </div>
-    
     <div class="colorchenge" id="output">
         {{ range .Text }}
         <pre>{{ . }}</pre>
